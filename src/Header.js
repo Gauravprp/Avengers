@@ -17,6 +17,7 @@ const Header = () => {
 
         {/* Add more navigation links here if needed */}
       </nav>
+      <h1>Hello suumit ajfgnir</h1>
     </header>
   );
 };
