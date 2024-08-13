@@ -1,0 +1,19 @@
+.acf-section {
+  padding-top: 60px;
+}
+.acf-section:nth-child(1) {
+  padding-top: 0;
+}
+
+.acf-section-title {
+  margin-bottom: 10px;
+}
+
+.acf-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.acf-section li {
+  margin-bottom: 10px;
+}
