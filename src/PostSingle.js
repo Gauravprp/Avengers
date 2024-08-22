@@ -12,7 +12,7 @@ const PostSingle = () => {
   useEffect(() => {
     // Fetch the post details
     axios
-      .get(`http://avengerss.rf.gd/wp-json/wp/v2/posts/${id}?_embed`)
+      .get(`https://vinayk57.sg-host.com/wp-json/wp/v2/posts/${id}?_embed`)
       .then((response) => {
         setPost(response.data);
         setLoading(false);
