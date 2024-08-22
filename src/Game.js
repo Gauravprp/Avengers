@@ -107,9 +107,10 @@ function Game() {
               <span className="block text-2xl font-bold mb-4">
                 Q {currentIndex + 1}.
               </span>
-              <span className="block mb-4 text-start">
-                {currentGame.title.rendered}
-              </span>
+             <span className="block mb-4 text-start">
+  {currentGame?.title?.rendered || "Default Title"}
+</span>
+
 
               <div className="quiz-options mb-4">
                 {options.map((option, i) => (
