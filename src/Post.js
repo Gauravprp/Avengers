@@ -11,10 +11,10 @@ const Post = () => {
   // Fetch posts by category
   useEffect(() => {
     const fetchHeroes = axios.get(
-      "http://localhost/wordpress/wp-json/wp/v2/posts?categories=1&_embed" // Replace '1' with the ID of the "Hero" category
+      "http://avengerss.rf.gd/wp-json/wp/v2/posts?categories=1&_embed" // Replace '1' with the correct ID
     );
     const fetchVillain = axios.get(
-      "http://localhost/wordpress/wp-json/wp/v2/posts?categories=4&_embed" // Replace '2' with the ID of the "Villain" category
+      "http://avengerss.rf.gd/wp-json/wp/v2/posts?categories=4&_embed" // Replace '4' with the correct ID
     );
 
     Promise.all([fetchHeroes, fetchVillain])
@@ -31,7 +31,14 @@ const Post = () => {
   }, []);
 
   if (loading) return <p className="h-[80vh]">Loading...</p>;
-  if (error) return <p>Error loading posts: {error.message}</p>;
+  if (error) {
+    return (
+      <div>
+        <p>Error loading posts: {error.message}</p>
+        <pre>{JSON.stringify(error.response?.data, null, 2)}</pre>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -39,7 +46,7 @@ const Post = () => {
         <img
           src="/images/HeroBanner.gif"
           alt="Avengers Banner"
-          className="w-[100%] "
+          className="w-[100%]  "
         />{" "}
       </div>
       <div className="post-container py-[60px]">

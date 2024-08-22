@@ -14,3 +14,92 @@ body {
   background-color: #e62429;
   color: #fff;
 }
+
+/* Game.js or equivalent */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.animate-slide-out {
+  animation: slideOut 0.5s ease-in-out;
+}
+.completion-message {
+  color: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Party popper animation */
+/* .party-popper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-image: url("./footerLogo.png"); 
+  background-size: cover;
+  background-position: center;
+  animation: party-pop 1s ease-out;
+}
+
+@keyframes party-pop {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+} */
+.drop {
+  animation: drop 1s ease-in-out infinite;
+  transition: all ease 1s;
+}
+@keyframes drop {
+  0% {
+    filter: drop-shadow(0 0px 10px rgba(255, 3, 3, 0.692))
+      drop-shadow(0 0px 10px rgba(255, 0, 0, 0.575));
+  }
+  100% {
+    filter: drop-shadow(0 0px 15px rgba(255, 3, 3, 0.692))
+      drop-shadow(0 0px 15px rgba(255, 0, 0, 0.575));
+  }
+}
+.drop:hover {
+  transform: rotateZ(30deg);
+}
