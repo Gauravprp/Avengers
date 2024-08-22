@@ -108,7 +108,7 @@ function Game() {
                   Q {currentIndex + 1}.
                 </span>
                 <span className="block mb-4 text-start">
-                  {currentGame.title.rendered}
+                  // {currentGame.title.rendered}
                 </span>
 
                 <div className="quiz-options mb-4">
