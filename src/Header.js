@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logo } from "./images/avengers-logo.png";
+import HeaderLogo from "./Avengers-Logo.png";
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex justify-center">
           <Link to="/" className="header-link">
             <img
-              src={ logo }
+              src={HeaderLogo}
               alt="Avengers Logo"
               className="header-logo w-[100%] max-w-[300px]"
             />
