@@ -11,10 +11,10 @@ const Post = () => {
   // Fetch posts by category
   useEffect(() => {
     const fetchHeroes = axios.get(
-      "http://avengerss.rf.gd/wp-json/wp/v2/posts?categories=1&_embed" // Replace '1' with the correct ID
+      "https://vinayk57.sg-host.com/wp-json/wp/v2/posts?categories=1&_embed" // Replace '1' with the correct ID
     );
     const fetchVillain = axios.get(
-      "http://avengerss.rf.gd/wp-json/wp/v2/posts?categories=4&_embed" // Replace '4' with the correct ID
+      "https://vinayk57.sg-host.com/wp-json/wp/v2/posts?categories=4&_embed" // Replace '4' with the correct ID
     );
 
     Promise.all([fetchHeroes, fetchVillain])
