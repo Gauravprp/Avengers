@@ -26,7 +26,7 @@ const Footer = () => {
     <>
       <Link to="/game">
         <div
-          className="rounded-full fixed bottom-[20%] right-[5%] z-10 gameBtn"
+          className="rounded-full fixed bottom-[8%] right-[5%] z-[20] gameBtn"
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
