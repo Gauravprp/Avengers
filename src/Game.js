@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -63,117 +62,27 @@ function Game() {
     setIsQuizCompleted(false); // Reset quiz completion state
   };
 
-  const currentGame = games[currentIndex];
-  if (!currentGame) return null; // Ensure there is a game to display
-
-  const options = [
-    currentGame.acf.upload_answers[0].answer_1,
-    currentGame.acf.upload_answers[0].answer_2,
-    currentGame.acf.upload_answers[0].answer_3,
-    currentGame.acf.upload_answers[0].answer_4,
-  ];
+  if (!games.length) return <p>Loading games...</p>; // Display a loading message
 
   return (
-    <>
-      <section className="flex justify-center h-[50vh] quiz-section">
+    <section className="flex justify-center flex-wrap gap-8 p-4">
+      {games.map((game, index) => (
         <div
-          className={`transition-transform duration-500 ease-in-out ${
-            animation === "slide-in" ? "animate-slide-in" : "animate-slide-out"
-          } text-center w-full max-w-md`}
+          key={game.id}
+          className="game-card bg-white shadow-lg rounded-lg p-4 w-full max-w-sm"
         >
-          {isQuizCompleted ? (
-            <div className="completion-message">
-              <p>
-                Congratulations! You have successfully completed the quiz. Your
-                knowledge is out of this world!
-                <br />
-                <br />
-                We hope you had fun and learned something new. Celebrate your
-                victory with us and enjoy the achievement!
-              </p>
-              <div className="party-popper"></div>
-              {/* <button className="snap-button" onClick={handleRestart}>
-                <img src="path-to-snap-icon.svg" alt="Snap Icon" />
-                Snap Me
-              </button> */}
-              <Link to="/">
-                <button>
-                  <u>Back to Home</u>
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <>
-              <span className="block text-2xl font-bold mb-4">
-                Q {currentIndex + 1}.
-              </span>
-              <span className="block mb-4 text-start">
-                {currentGame.title.rendered}
-              </span>
-
-              <div className="quiz-options mb-4">
-                {options.map((option, i) => (
-                  <label
-                    key={i}
-                    className="flex items-center mb-4 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name={`question-${currentGame.id}`}
-                      value={option}
-                      className="hidden"
-                      onChange={handleChange}
-                      disabled={isSubmitted}
-                      checked={selectedOption === option}
-                    />
-                    <span
-                      className={`w-5 h-5 mr-3 border-2 border-[#EA2328] rounded-full flex items-center justify-center ${
-                        selectedOption === option ? "bg-[#EA2328]" : ""
-                      }`}
-                    >
-                      {selectedOption === option && (
-                        <span className="w-3 h-3 bg-white rounded-full"></span>
-                      )}
-                    </span>
-                    {`${["A", "B", "C", "D"][i]}) ${option}`}
-                  </label>
-                ))}
-              </div>
-
-              {/* Feedback Div */}
-              <div
-                className={`mt-4 p-4 ${
-                  feedback === "correct"
-                    ? "bg-green-400 animate-pulse text-[#fff] font-[700]"
-                    : feedback === "incorrect"
-                    ? "bg-red-400 animate-pulse text-[#fff] font-[700]"
-                    : ""
-                }`}
-              >
-                {feedback === "correct"
-                  ? "Correct Answer!"
-                  : feedback === "incorrect"
-                  ? "Incorrect Answer!"
-                  : ""}
-              </div>
-
-              {/* Restart Quiz Button */}
-              {feedback === "incorrect" && (
-                <div className="mt-4">
-                  <button
-                    onClick={handleRestart}
-                    className="p-2 bg-[#EA2328] text-white rounded"
-                  >
-                    Restart Quiz
-                  </button>
-                </div>
-              )}
-            </>
-          )}
+          <h2 className="text-xl font-bold mb-4">{game.title.rendered}</h2>
+          <p>{game.excerpt.rendered.replace(/<[^>]+>/g, '')}</p> {/* Display excerpt or any other content */}
+          
+          <Link
+            to={`/game/${game.id}`}
+            className="block mt-4 bg-blue-500 text-white text-center py-2 rounded"
+          >
+            Play Quiz
+          </Link>
         </div>
-      </section>
-      <section></section>
-    </>
+      ))}
+    </section>
   );
 }
 
