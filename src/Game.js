@@ -15,7 +15,7 @@ function Game() {
   useEffect(() => {
     // Fetch the game data from WordPress REST API
     axios
-      .get("https://vinayk57.sg-host.com/wp-json/wp/v2/game")
+      .get("https://vinayk57.sg-host.com/wp-json/wp/v2/game/per_page=1")
       .then((response) => {
         setGames(response.data);
         console.log(response);
