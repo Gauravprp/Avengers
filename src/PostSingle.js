@@ -39,7 +39,7 @@ const PostSingle = () => {
   return (
     <div className="container mx-auto ">
       <div className="flex max-[1000px]:flex-col-reverse gap-x-[80px] max-[800px]:gap-y-[40px]">
-        <div className="flex-1 lg:w-3/4">
+        <div className="flex-1 lg:w-[70%]">
           <h1 className="text-3xl font-bold mb-4">{post.title.rendered}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
@@ -94,7 +94,7 @@ const PostSingle = () => {
           </div>
         </div>
 
-        <div className="">
+        <div className="lg:w-[30%]">
           {featuredImageUrl && (
             <img
               src={featuredImageUrl}
