@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import Shop from "./Shop";
 import Progress from "./Progress";
 import Game from "./Game";
 import Post from "./Post"; // Adjust the import path as necessary
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/privacy-policy" element={<Progress />} />
             <Route path="/terms-of-use" element={<Progress />} />
             <Route path="/post/:id" element={<PostSingle />} />
+            <Route path="/Shop" element={<Shop />} />
           </Routes>
         </div>
         <Footer />
