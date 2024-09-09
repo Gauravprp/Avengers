@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 
 function AuthForm() {
-  // State for managing input fields
-  const [formType, setFormType] = useState("login"); // Toggle between login and registration
+  const [formType, setFormType] = useState("login");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // Function to handle form submission
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,7 +21,6 @@ function AuthForm() {
     }
   };
 
-  // Function to handle login
   const handleLogin = async () => {
     const formData = new FormData();
     formData.append("action", "custom_user_login");
@@ -37,13 +37,18 @@ function AuthForm() {
       );
 
       const result = await response.text();
-      setMessage(result);
+
+      if (result.includes("Login successful")) {
+        setMessage(result);
+        navigate("/shop"); // Navigate to the shop page after successful login
+      } else {
+        setMessage(result);
+      }
     } catch (error) {
       setMessage("Login failed. Please try again.");
     }
   };
 
-  // Function to handle registration
   const handleRegistration = async () => {
     if (password !== confirmPassword) {
       setMessage("Passwords do not match.");
@@ -71,6 +76,11 @@ function AuthForm() {
     } catch (error) {
       setMessage("Registration failed. Please try again.");
     }
+  };
+
+  const handleLogout = () => {
+    window.location.href =
+      "https://vinayk57.sg-host.com/wp-login.php?action=logout";
   };
 
   return (
@@ -137,6 +147,11 @@ function AuthForm() {
         {formType === "login" ? "Switch to Register" : "Switch to Login"}
       </button>
       {message && <p>{message}</p>}
+      {formType === "shop" && (
+        <div>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      )}
     </div>
   );
 }
