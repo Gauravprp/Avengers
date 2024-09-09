@@ -12,10 +12,17 @@ const Shop = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <div>
         <h1>Shop Page</h1>
         <button onClick={logout}>Logout</button>
       </div>
+=======
+       <div>
+      <h1>Shop Page</h1>
+      <button onClick={logout}>Logout</button>
+    </div>
+>>>>>>> 2872d7c964e901c8abe1a7faa04c9fefe89e7a39
       <div className="bg-black text-white min-h-screen p-4">
         <h1 className="text-4xl font-bold text-center mb-8">Shop</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -39,14 +39,26 @@ function AuthForm() {
       );
 
       const result = await response.text();
+<<<<<<< HEAD
       if (result.includes("Login successful")) {
         setMessage("Login successful");
         login(); // Use context to handle login
+=======
+      console.log(result); // Log the raw response
+
+      if (result.includes("Login successful")) {
+        setMessage("Login successful");
+        navigate("/"); // Navigate to the home page
+>>>>>>> 2872d7c964e901c8abe1a7faa04c9fefe89e7a39
       } else {
         setMessage(result);
       }
     } catch (error) {
+<<<<<<< HEAD
       console.error("Error during login:", error);
+=======
+      console.error("Error during login:", error); // Log any errors
+>>>>>>> 2872d7c964e901c8abe1a7faa04c9fefe89e7a39
       setMessage("Login failed. Please try again.");
     }
   };
@@ -76,7 +88,11 @@ function AuthForm() {
       const result = await response.text();
       setMessage(result);
     } catch (error) {
+<<<<<<< HEAD
       console.error("Error during registration:", error);
+=======
+      console.error("Error during registration:", error); // Log any errors
+>>>>>>> 2872d7c964e901c8abe1a7faa04c9fefe89e7a39
       setMessage("Registration failed. Please try again.");
     }
   };
