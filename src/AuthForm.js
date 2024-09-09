@@ -37,10 +37,10 @@ function AuthForm() {
       );
 
       const result = await response.text();
-
+      console.log(result);
       if (result.includes("Login successful")) {
         setMessage(result);
-        document.write("shfjkdshfudshfiu");
+        window.location.href = "/shop";
       } else {
         setMessage(result);
       }
