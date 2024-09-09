@@ -12,18 +12,10 @@ const Shop = () => {
 
   return (
     <>
-      <div>
-        <h1>Welcome to the Shop Page</h1>
-        {/* Add your shop page content here */}
-        <button
-          onClick={() =>
-            (window.location.href =
-              "https://vinayk57.sg-host.com/wp-login.php?action=logout")
-          }
-        >
-          Logout
-        </button>
-      </div>
+       <div>
+      <h1>Shop Page</h1>
+      <button onClick={logout}>Logout</button>
+    </div>
       <div className="bg-black text-white min-h-screen p-4">
         <h1 className="text-4xl font-bold text-center mb-8">Shop</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
