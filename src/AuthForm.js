@@ -1,5 +1,7 @@
+// src/components/AuthForm.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function AuthForm() {
   const [formType, setFormType] = useState("login");
@@ -9,11 +11,11 @@ function AuthForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const { login, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (formType === "login") {
       handleLogin();
     } else {
@@ -37,14 +39,14 @@ function AuthForm() {
       );
 
       const result = await response.text();
-
       if (result.includes("Login successful")) {
-        setMessage(result);
-        navigate("/shop"); // Navigate to the shop page after successful login
+        setMessage("Login successful");
+        login(); // Use context to handle login
       } else {
         setMessage(result);
       }
     } catch (error) {
+      console.error("Error during login:", error);
       setMessage("Login failed. Please try again.");
     }
   };
@@ -74,13 +76,9 @@ function AuthForm() {
       const result = await response.text();
       setMessage(result);
     } catch (error) {
+      console.error("Error during registration:", error);
       setMessage("Registration failed. Please try again.");
     }
-  };
-
-  const handleLogout = () => {
-    window.location.href =
-      "https://vinayk57.sg-host.com/wp-login.php?action=logout";
   };
 
   return (
@@ -147,11 +145,6 @@ function AuthForm() {
         {formType === "login" ? "Switch to Register" : "Switch to Login"}
       </button>
       {message && <p>{message}</p>}
-      {formType === "shop" && (
-        <div>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      )}
     </div>
   );
 }
