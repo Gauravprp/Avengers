@@ -40,7 +40,7 @@ function AuthForm() {
 
       if (result.includes("Login successful")) {
         setMessage(result);
-        window.location.href = "/shop";
+        document.write("shfjkdshfudshfiu");
       } else {
         setMessage(result);
       }
