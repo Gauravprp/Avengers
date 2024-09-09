@@ -37,15 +37,16 @@ function AuthForm() {
       );
 
       const result = await response.text();
+      console.log(result); // Log the raw response
 
-      console.log(result);
       if (result.includes("Login successful")) {
-        setMessage(result);
-        navigate("/shop"); // Use navigate to redirect
+        setMessage("Login successful");
+        navigate("/"); // Navigate to the home page
       } else {
         setMessage(result);
       }
     } catch (error) {
+      console.error("Error during login:", error); // Log any errors
       setMessage("Login failed. Please try again.");
     }
   };
@@ -75,6 +76,7 @@ function AuthForm() {
       const result = await response.text();
       setMessage(result);
     } catch (error) {
+      console.error("Error during registration:", error); // Log any errors
       setMessage("Registration failed. Please try again.");
     }
   };
