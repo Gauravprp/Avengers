@@ -50,7 +50,7 @@ const Post = () => {
         />{" "}
       </div>
             <div>
-            <Link to="/auth">
+            <Link to="/Auth">
                 <button>
                   <u>Login / Signup</u>
                 </button>
