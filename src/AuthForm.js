@@ -37,10 +37,11 @@ function AuthForm() {
       );
 
       const result = await response.text();
+
       console.log(result);
       if (result.includes("Login successful")) {
         setMessage(result);
-        window.location.href = "/shop";
+        navigate("/shop"); // Use navigate to redirect
       } else {
         setMessage(result);
       }
