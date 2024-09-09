@@ -8,6 +8,7 @@ import Game from "./Game";
 import Post from "./Post"; // Adjust the import path as necessary
 import PostSingle from "./PostSingle"; // Import the new PostSingle component
 import "./App.css"; // Import CSS for App if needed
+import AuthForm from "./AuthForm";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/terms-of-use" element={<Progress />} />
             <Route path="/post/:id" element={<PostSingle />} />
             <Route path="/Shop" element={<Shop />} />
+            <Route path="/Auth" element={<AuthForm />} />
           </Routes>
         </div>
         <Footer />
