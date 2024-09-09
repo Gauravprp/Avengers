@@ -40,7 +40,7 @@ function AuthForm() {
 
       if (result.includes("Login successful")) {
         setMessage(result);
-        navigate("/Shop"); // Navigate to the shop page after successful login
+        window.location.href = "/shop";
       } else {
         setMessage(result);
       }
