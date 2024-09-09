@@ -49,6 +49,13 @@ const Post = () => {
           className="w-[100%]  "
         />{" "}
       </div>
+            <div>
+            <Link to="/auth">
+                <button>
+                  <u>Login / Signup</u>
+                </button>
+            </Link>
+            </div>
       <div className="post-container py-[60px]">
         {/* Heroes Section */}
         <section className="mb-10">
